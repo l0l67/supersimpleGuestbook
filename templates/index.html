@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>IDK</title>
+		<title>Guestbook</title>
 		<style>
-			
 			#date_and_username {
 				margin-bottom: 2px;
 			}
@@ -14,7 +13,7 @@
 		</style>
 	</head>
 	<body>
-		<form class="userInput" action="{{url_for('guestbook')}}" method="post">
+		<form action="{{url_for('guestbook')}}" method="post">
 			<label for="username">Name:</label>
 			<input type="text" name="username" required><br>
 			
