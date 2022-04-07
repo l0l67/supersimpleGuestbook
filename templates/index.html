@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IDK</title>
+		<style>
+			
+			#date_and_username {
+				margin-bottom: 2px;
+			}
+			#message {
+				display: inline;
+				white-space: pre-wrap;
+			}
+		</style>
+	</head>
+	<body>
+		<form class="userInput" action="{{url_for('guestbook')}}" method="post">
+			<label for="username">Name:</label>
+			<input type="text" name="username" required><br>
+			
+			<label for="website">Website:</label>
+			<input type="text" name="website"><br>
+			
+			<label for="message">Message (max. 300 characters):</label><br>
+			<textarea maxlength="300" rows="5" cols="50" name="message"></textarea><br>
+			
+			<input type="submit" value="Submit">
+		</form>
+
+		<div class="content">
+			{% for entry in entries %}
+				<div class="entry">
+					<p>-----------------------------------------------------------</p>
+					<h3 id="date_and_username">{{entry[4]}} - {{entry[1]}}</h3>
+					{% if entry[3] != '' %}
+						<a href="//{{entry[3]}}">{{entry[3]}}</a>
+						<br>
+					{% endif %}
+					{% if entry[2] != '' %}
+						<pre id="message">{{entry[2]}}</pre>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</body>
+</html> 
