@@ -19,7 +19,7 @@ def closeDB():
 #Stuff:
 def createTable():
     global db
-    db.execute('create table if not exists guestbook (id integer primary key AUTOINCREMENT, username text not null, message text not null, website text not null, entrydate datetime not null);')
+    db.execute('create table if not exists guestbook (id integer primary key AUTOINCREMENT, username text not null, message text, website text, entrydate datetime not null);')
 
 if __name__ == '__main__':
     createTable()

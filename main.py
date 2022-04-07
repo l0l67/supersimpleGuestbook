@@ -13,8 +13,8 @@ def index():
 @public.route('/guestbook', methods=['POST'])
 def guestbook():
     tmp = request.form
-    
-    DB.newMessage(tmp.get('username'), tmp.get('message')[:325], tmp.get('website'))
+    if 'username' in tmp and tmp.get('username') != '':
+        DB.newMessage(tmp.get('username'), tmp.get('message')[:325], tmp.get('website'))
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
