@@ -45,6 +45,3 @@ def canPlace(request):
     
     DB.setLastPost(ip)
     return True
-
-if __name__ == '__main__':
-    public.run(port=42069, host='0.0.0.0')
