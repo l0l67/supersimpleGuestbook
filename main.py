@@ -22,6 +22,9 @@ def guestbook():
 
     if ('username' in tmp and tmp.get('username') != '') and canPlace(request):
         DB.newMessage(tmp.get('username'), tmp.get('message')[:325], tmp.get('website'))
+        
+        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] New Post from {request.remote_addr}")
+    
     return redirect(url_for('index'))
 
 def canPlace(request):

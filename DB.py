@@ -22,7 +22,6 @@ def setLastPost(ip):
 def _IPexists(ip):
     global db
     cursor = db.execute('select exists(select 1 from lastplaced where ip_addr = ?)', [ip]).fetchone()[0]
-    print(cursor)
     return cursor == 1
 
 def getLastPost(ip):
